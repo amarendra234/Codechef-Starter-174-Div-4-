@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int a[n];
+        unordered_map<int,int>umap;
+        int zero=0;
+        for(int i=0;i<n;i++){
+            cin>>a[i];
+            if(a[i]!=0){
+               umap[a[i]]++;
+            }else{
+                zero=1;
+            }
+        }
+        int ans=0;
+        for(auto nbr:umap){
+            ans+=(nbr.second%2);
+            if(nbr.second>=2){
+                zero=1;
+            }
+        }
+        if(zero){
+            ans++;
+        }
+        cout<<ans<<endl;
+
+
+
+    }
+}
